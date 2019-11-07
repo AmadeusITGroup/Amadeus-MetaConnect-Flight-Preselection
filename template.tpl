@@ -126,9 +126,53 @@ ___WEB_PERMISSIONS___
 
 ___TESTS___
 
-scenarios: []
+scenarios:
+- name: Basic test
+  code: |-
+    var triggerUrl;
+
+    mock('injectScript', function(url, onSuccess, onFailure) {
+      triggerUrl = url;
+      if (onSuccess != null) {
+        onSuccess();
+      }
+    });
+
+    // Call runCode to run the template's code.
+    runCode({
+      merchantCode: '7X'
+    });
+
+    // Verify that the tag finished successfully.
+    assertApi('gtmOnSuccess').wasCalled();
+
+    // Verify that the URL was correctly fired
+    assertApi('injectScript').wasCalled();
+    assertThat(triggerUrl).isEqualTo('https://static.connect.travelaudience.com/airline/bootstrap/7X.js');
+- name: Security test
+  code: |-
+    var triggerUrl;
+
+    mock('injectScript', function(url, onSuccess, onFailure) {
+      triggerUrl = url;
+      if (onSuccess != null) {
+        onSuccess();
+      }
+    });
+
+    // Call runCode to run the template's code.
+    runCode({
+      merchantCode: 'шеллы'
+    });
+
+    // Verify that the tag finished successfully.
+    assertApi('gtmOnSuccess').wasCalled();
+
+    // Verify that the URL was correctly fired
+    assertApi('injectScript').wasCalled();
+    assertThat(triggerUrl).isEqualTo('https://static.connect.travelaudience.com/airline/bootstrap/%D1%88%D0%B5%D0%BB%D0%BB%D1%8B.js');
 
 
 ___NOTES___
 
-Created on 11/7/2019, 4:13:23 PM
+Created on 11/7/2019, 5:36:48 PM

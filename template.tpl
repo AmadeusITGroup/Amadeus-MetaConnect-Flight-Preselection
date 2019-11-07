@@ -55,6 +55,25 @@ ___TEMPLATE_PARAMETERS___
 ]
 
 
+___SANDBOXED_JS_FOR_WEB_TEMPLATE___
+
+// Require relevant API
+const log = require('logToConsole');
+const injectScript = require('injectScript');
+const encodeUri = require('encodeUri');
+
+// Capture values of template fields
+log('data =', data);
+const merchantCode = data.merchantCode;
+
+// Inject script
+const url = "https://static.connect.travelaudience.com/airline/bootstrap/" + encodeUri(merchantCode) + ".js";
+injectScript(url);
+
+// Call data.gtmOnSuccess when the tag is finished.
+data.gtmOnSuccess();
+
+
 ___WEB_PERMISSIONS___
 
 [
@@ -105,25 +124,11 @@ ___WEB_PERMISSIONS___
 ]
 
 
-___SANDBOXED_JS_FOR_WEB_TEMPLATE___
+___TESTS___
 
-// Require relevant API
-const log = require('logToConsole');
-const injectScript = require('injectScript');
-const encodeUri = require('encodeUri');
-
-// Capture values of template fields
-log('data =', data);
-const merchantCode = data.merchantCode.toUpperCase();
-
-// Inject script
-const url = "https://static.connect.travelaudience.com/airline/bootstrap/" + encodeUri(merchantCode) + ".js";
-injectScript(url);
-
-// Call data.gtmOnSuccess when the tag is finished.
-data.gtmOnSuccess();
+scenarios: []
 
 
 ___NOTES___
 
-Created on 11/5/2019, 11:53:34 AM
+Created on 11/7/2019, 4:13:23 PM

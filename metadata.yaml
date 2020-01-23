@@ -15,5 +15,5 @@
 homepage: "https://amadeus.com"
 documentation: "https://api.connect.travelaudience.com/"
 versions:
-  - sha: 35666e7946a33c2bbac9b6471353ef4cd23101c0
+  - sha: c5ca6a889062ce6c54bf29c72ca69dcf2ca11657
     changeNotes: Initial release.

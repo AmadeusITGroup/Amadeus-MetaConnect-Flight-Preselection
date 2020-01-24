@@ -50,7 +50,12 @@ ___TEMPLATE_PARAMETERS___
     "displayName": "Merchant code",
     "simpleValueType": true,
     "valueHint": "6X",
-    "help": "This is the merchant code you are registered with in Meta Connect."
+    "help": "This is the merchant code you are registered with in Meta Connect.",
+    "valueValidators": [
+      {
+        "type": "NON_EMPTY"
+      }
+    ]
   }
 ]
 
@@ -68,10 +73,7 @@ const merchantCode = data.merchantCode;
 
 // Inject script
 const url = "https://static.connect.travelaudience.com/airline/bootstrap/" + encodeUri(merchantCode) + ".js";
-injectScript(url);
-
-// Call data.gtmOnSuccess when the tag is finished.
-data.gtmOnSuccess();
+injectScript(url, data.gtmOnSuccess, data.gtmOnFailure);
 
 
 ___WEB_PERMISSIONS___
@@ -175,4 +177,4 @@ scenarios:
 
 ___NOTES___
 
-Created on 11/7/2019, 5:36:48 PM
+Created on 1/24/2020, 11:15:12 AM

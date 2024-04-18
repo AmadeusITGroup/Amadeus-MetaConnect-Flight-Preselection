@@ -16,8 +16,10 @@ homepage: "https://amadeus.com"
 documentation: "https://api.connect.travelaudience.com/"
 versions:
   # Latest version
+  - sha: f068f86275f193def26ea3f3d372aaacd40f9929
+    changeNotes: Use the new static subdomain.
+  # Older versions
   - sha: 09426bbec5c595fd046a9b6592be9b966824986f
     changeNotes: Added parameter validation. Fixed callbacks.
-  # Older versions
   - sha: c5ca6a889062ce6c54bf29c72ca69dcf2ca11657
     changeNotes: Initial release.

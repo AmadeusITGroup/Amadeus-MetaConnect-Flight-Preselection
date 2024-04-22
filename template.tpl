@@ -72,7 +72,7 @@ log('data =', data);
 const merchantCode = data.merchantCode;
 
 // Inject script
-const url = "https://static.metaconnect.saas.amadeus.com/airline/bootstrap/" + encodeUri(merchantCode) + ".js";
+const url = "https://static.connect.travelaudience.com/airline/bootstrap/" + encodeUri(merchantCode) + ".js";
 injectScript(url, data.gtmOnSuccess, data.gtmOnFailure);
 
 
@@ -111,7 +111,7 @@ ___WEB_PERMISSIONS___
             "listItem": [
               {
                 "type": 1,
-                "string": "https://static.metaconnect.saas.amadeus.com/airline/bootstrap/*"
+                "string": "https://static.connect.travelaudience.com/airline/bootstrap/*"
               }
             ]
           }
@@ -150,7 +150,7 @@ scenarios:
 
     // Verify that the URL was correctly fired
     assertApi('injectScript').wasCalled();
-    assertThat(triggerUrl).isEqualTo('https://static.metaconnect.saas.amadeus.com/airline/bootstrap/7X.js');
+    assertThat(triggerUrl).isEqualTo('https://static.connect.travelaudience.com/airline/bootstrap/7X.js');
 - name: Security test
   code: |-
     var triggerUrl;
@@ -172,7 +172,7 @@ scenarios:
 
     // Verify that the URL was correctly fired
     assertApi('injectScript').wasCalled();
-    assertThat(triggerUrl).isEqualTo('https://static.metaconnect.saas.amadeus.com/airline/bootstrap/%D1%88%D0%B5%D0%BB%D0%BB%D1%8B.js');
+    assertThat(triggerUrl).isEqualTo('https://static.connect.travelaudience.com/airline/bootstrap/%D1%88%D0%B5%D0%BB%D0%BB%D1%8B.js');
 
 
 ___NOTES___
